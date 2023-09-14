@@ -20,6 +20,7 @@ import Link from "@mui/material/Link";
 // MUI Icons
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import GitHubIcon from "@mui/icons-material/GitHub";
 // Theme
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
@@ -32,58 +33,60 @@ const DrawerContent = () => {
   let location = useLocation();
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", width: 240 }}>
+    <>
       <Toolbar />
-      {pages.map((page) => {
-        return (
-          <Accordion
-            disableGutters
-            defaultExpanded={
-              location.pathname == `/${page.root}` ? true : false
-            }
-            key={page.level}
-          >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography component="h2" variant="body1">
-                {page.level}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <List
-                sx={{
-                  width: "100%",
-                  maxWidth: 360,
-                  position: "relative",
-                  overflow: "auto",
-                  maxHeight: 300,
-                  "& ul": { padding: 0 },
-                }}
-              >
-                {page.contents.map((content) => {
-                  return (
-                    <ListItem key={content.link}>
-                      <Link
-                        component={RouterLink}
-                        variant="body2"
-                        underline="hover"
-                        color={
-                          location.pathname == `${page.root}/${content.link}`
-                            ? "primary"
-                            : "inherit"
-                        }
-                        to={`${page.root}/${content.link}`}
-                      >
-                        {content.name}
-                      </Link>
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-        );
-      })}
-    </Box>
+      <Box sx={{ overflow: "auto" }}>
+        {pages.map((page) => {
+          return (
+            <Accordion
+              disableGutters
+              defaultExpanded={
+                location.pathname == `/${page.root}` ? true : false
+              }
+              key={page.level}
+            >
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography component="h2" variant="body1">
+                  {page.level}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <List
+                  sx={{
+                    width: "100%",
+                    maxWidth: 360,
+                    position: "relative",
+                    overflow: "auto",
+                    maxHeight: 300,
+                    "& ul": { padding: 0 },
+                  }}
+                >
+                  {page.contents.map((content) => {
+                    return (
+                      <ListItem key={content.link}>
+                        <Link
+                          component={RouterLink}
+                          variant="body2"
+                          underline="hover"
+                          color={
+                            location.pathname == `${page.root}/${content.link}`
+                              ? "primary"
+                              : "inherit"
+                          }
+                          to={`${page.root}/${content.link}`}
+                        >
+                          {content.name}
+                        </Link>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+          );
+        })}
+      </Box>
+    </>
   );
 };
 
@@ -127,6 +130,17 @@ const Header = (props: HeaderProps) => {
             KitsuKorner
           </Link>
           <div style={{ flexGrow: 1 }}></div>
+          <Link
+            component={RouterLink}
+            color="inherit"
+            to="https://github.com/LinCie/KitsuKorner"
+            target="_blank"
+            style={{ marginRight: "15px" }}
+          >
+            <IconButton size="large" edge="start" color="inherit">
+              <GitHubIcon />
+            </IconButton>
+          </Link>
           <FormGroup>
             <FormControlLabel
               control={<DisplaySwitch sx={{ m: 1 }} />}
@@ -148,11 +162,22 @@ const Header = (props: HeaderProps) => {
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": { boxSizing: "border-box" },
+            // "& ::-webkit-scrollbar": {
+            //   width: "8px",
+            // },
+            // "& ::-webkit-scrollbar-track": {
+            //   background: "#f1f1f1",
+            // },
+            // "& ::-webkit-scrollbar-thumb": {
+            //   backgroundColor: displayMode ? "black" : "primary.main",
+            //   borderRadius: "5px",
+            //   border: "2px #f1f1f1 solid",
+            // },
           }}
         >
           <DrawerContent />
@@ -164,6 +189,17 @@ const Header = (props: HeaderProps) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
             },
+            // "& ::-webkit-scrollbar": {
+            //   width: "8px",
+            // },
+            // "& ::-webkit-scrollbar-track": {
+            //   background: "#f1f1f1",
+            // },
+            // "& ::-webkit-scrollbar-thumb": {
+            //   backgroundColor: displayMode ? "black" : "primary.main",
+            //   borderRadius: "5px",
+            //   border: "2px #f1f1f1 solid",
+            // },
           }}
           open
         >
@@ -186,7 +222,13 @@ const Root = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header handleDisplayMode={handleDisplayMode} displayMode={isDark} />
-      <Box sx={{ marginTop: 13, marginLeft: { xs: "0px", sm: "240px" }, paddingX: 5 }}>
+      <Box
+        sx={{
+          marginTop: { xs: 11, sm: 16 },
+          marginLeft: { xs: "0px", sm: "240px" },
+          paddingX: {xs: 5, sm: 10},
+        }}
+      >
         <Outlet />
       </Box>
     </ThemeProvider>
