@@ -4,10 +4,6 @@ export const pages = [
     root: "introductory",
     contents: [
       {
-        name: "Getting Started",
-        link: ""
-      },
-      {
         name: "Introduction to Japanese",
         link: "intro-to-japanese",
       },
