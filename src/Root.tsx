@@ -44,6 +44,9 @@ const DrawerContent = () => {
                 location.pathname == `/${page.root}` ? true : false
               }
               key={page.level}
+              sx={{
+                width: "240px"
+              }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography component="h2" variant="body1">
@@ -153,7 +156,7 @@ const Header = (props: HeaderProps) => {
       </AppBar>
       <Box
         component="nav"
-        sx={{ width: { sm: 240 }, flexShrink: { sm: 0 } }}
+        sx={{ flexShrink: { sm: 0 } }}
         aria-label="kitsu navigation"
       >
         <Drawer
