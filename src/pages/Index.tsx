@@ -1,16 +1,10 @@
-// React Router
-import { Link as RouterLink } from "react-router-dom";
 // MUI Components
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 // Components
-import Japanese from "../components/Typographies/Japanese";
-import Bold from "../components/Typographies/Bold";
-import Paragraph from "../components/Typographies/Paragraph";
-// MUI Icons
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Japanese from "../components/typographies/Japanese";
+import Bold from "../components/typographies/Bold";
+import Paragraph from "../components/typographies/Paragraph";
+import { BottomNavigation, NavigationLink } from "../components/navigations/BottomNavigation";
 
 const Index = () => {
   return (
@@ -49,32 +43,10 @@ const Index = () => {
         </Bold>
         " (I can speak Japanese!)
       </Paragraph>
-      <Box display="flex" justifyContent="space-between" marginY="50px">
-        <Link
-          component={RouterLink}
-          variant="body2"
-          underline="hover"
-          to="/"
-          fontWeight="bold"
-        >
-          <Box display="flex" alignItems="center" gap="10px">
-            <ArrowBackIcon />
-            Home
-          </Box>
-        </Link>
-        <Link
-          component={RouterLink}
-          variant="body2"
-          underline="hover"
-          to="/introductory/intro-to-japanese"
-          fontWeight="bold"
-        >
-          <Box display="flex" alignItems="center" gap="10px">
-            Introduction to Japanese
-            <ArrowForwardIcon />
-          </Box>
-        </Link>
-      </Box>
+      <BottomNavigation>
+        <NavigationLink left link="/">Home</NavigationLink>
+        <NavigationLink link="introductory/intro-to-japanese">Introduction to Japanese</NavigationLink>
+      </BottomNavigation>
     </>
   );
 };
