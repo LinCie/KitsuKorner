@@ -38,12 +38,17 @@ const DrawerContent = () => {
       <Box sx={{ overflow: "auto" }}>
         {pages.map((page) => {
           const regex = new RegExp(`\/${page.root}(.*)`);
+          const [expanded, setExpanded] = useState(
+            location.pathname.match(regex) ? true : false
+          )
+          const handleAccordionChange = () => {
+            setExpanded((prevExpanded) => !prevExpanded);
+          };
           return (
             <Accordion
               disableGutters
-              defaultExpanded={
-                location.pathname.match(regex) ? true : false
-              }
+              expanded={expanded}
+              onChange={handleAccordionChange}
               key={page.level}
               sx={{
                 width: "240px"
