@@ -41,7 +41,7 @@ const DrawerContent = () => {
           return (
             <Accordion
               disableGutters
-              defaultExpanded={
+              expanded={
                 location.pathname.match(regex) ? true : false
               }
               key={page.level}
