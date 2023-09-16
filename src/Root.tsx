@@ -37,11 +37,12 @@ const DrawerContent = () => {
       <Toolbar />
       <Box sx={{ overflow: "auto" }}>
         {pages.map((page) => {
+          const regex = new RegExp(`\/${page.root}(.*)`);
           return (
             <Accordion
               disableGutters
               defaultExpanded={
-                location.pathname == `/${page.root}` ? true : false
+                location.pathname.match(regex) ? true : false
               }
               key={page.level}
               sx={{
@@ -72,11 +73,16 @@ const DrawerContent = () => {
                           variant="body2"
                           underline="hover"
                           color={
-                            location.pathname == `${page.root}/${content.link}`
-                              ? "primary"
+                            location.pathname == `/${page.root}/${content.link}`
+                              ? "primary.main"
                               : "inherit"
                           }
                           to={`${page.root}/${content.link}`}
+                          fontWeight={
+                            location.pathname == `/${page.root}/${content.link}`
+                              ? "700"
+                              : "400"
+                          }
                         >
                           {content.name}
                         </Link>
