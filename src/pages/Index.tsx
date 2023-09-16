@@ -44,7 +44,7 @@ const Index = () => {
         " (I can speak Japanese!)
       </Paragraph>
       <BottomNavigation>
-        <NavigationLink left link="/">Home</NavigationLink>
+        <div></div>
         <NavigationLink link="/introductory/intro-to-japanese">Introduction to Japanese</NavigationLink>
       </BottomNavigation>
     </>
