@@ -24,7 +24,7 @@ export const NavigationLink = (props: NavigationLinkProps) => {
       underline="hover"
       to={link}
       fontWeight="bold"
-      color="inherit"
+      color="primary.main"
     >
       <Box
         display="flex"

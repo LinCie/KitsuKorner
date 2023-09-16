@@ -23,10 +23,10 @@ export const darkMode: ThemeOptions = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#cc3e3e",
+      main: "#FFFFFF",
     },
     secondary: {
-      main: "#cc853e",
+      main: "#FFFFFF",
     },
     warning: {
       main: "#ed6c02",
