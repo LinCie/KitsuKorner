@@ -1,3 +1,5 @@
+import IntroToJapan from "./pages/introductory/IntroToJapan"
+
 export const pages = [
   {
     level: "Introductory",
@@ -6,6 +8,7 @@ export const pages = [
       {
         name: "Introduction to Japanese",
         link: "intro-to-japanese",
+        element: <IntroToJapan />
       },
       {
         name: "Introduction to Hiragana",

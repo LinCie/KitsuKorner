@@ -13,11 +13,21 @@ import Root from "./Root";
 // Assets
 import "./index.css";
 import Index from "./pages/Index";
+import { pages } from "./pages";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route element={<Index />} index/>
+      <Route element={<Index />} index />
+      {pages.flatMap((level) =>
+        level.contents.map((page) => (
+          <Route
+            key={page.name}
+            element={page.element}
+            path={`${level.root}/${page.link}`}
+          />
+        ))
+      )}
     </Route>
   )
 );
