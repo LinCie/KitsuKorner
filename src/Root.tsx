@@ -38,20 +38,15 @@ const DrawerContent = () => {
       <Box sx={{ overflow: "auto" }}>
         {pages.map((page) => {
           const regex = new RegExp(`\/${page.root}(.*)`);
-          const [expanded, setExpanded] = useState(
-            location.pathname.match(regex) ? true : false
-          );
-          const handleClick = () => {
-            setExpanded(!expanded)
-          }
           return (
             <Accordion
               disableGutters
-              expanded={expanded}
-              onClick={handleClick}
+              defaultExpanded={
+                location.pathname.match(regex) ? true : false
+              }
               key={page.level}
               sx={{
-                width: "240px",
+                width: "240px"
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -82,12 +77,12 @@ const DrawerContent = () => {
                               ? "primary.main"
                               : "inherit"
                           }
-                          to={`${page.root}/${content.link}`}
                           fontWeight={
                             location.pathname == `/${page.root}/${content.link}`
                               ? "700"
                               : "400"
                           }
+                          to={`${page.root}/${content.link}`}
                         >
                           {content.name}
                         </Link>
@@ -240,7 +235,7 @@ const Root = () => {
         sx={{
           marginTop: { xs: 11, sm: 16 },
           marginLeft: { xs: "0px", sm: "240px" },
-          paddingX: { xs: 5, sm: 10 },
+          paddingX: {xs: 5, sm: 10},
         }}
       >
         <Outlet />
