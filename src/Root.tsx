@@ -238,7 +238,7 @@ const Root = () => {
       <Header handleDisplayMode={handleDisplayMode} displayMode={isDark} />
       <Box
         sx={{
-          marginTop: { xs: 11, sm: 16 },
+          marginTop: { xs: 11, sm: 14 },
           marginLeft: { xs: "0px", sm: "240px" },
           paddingX: {xs: 5, sm: 10},
         }}
