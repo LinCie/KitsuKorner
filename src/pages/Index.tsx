@@ -1,9 +1,9 @@
 // MUI Components
 import Typography from "@mui/material/Typography";
 // Components
-import Japanese from "../components/typographies/Japanese";
-import Bold from "../components/typographies/Bold";
-import Paragraph from "../components/typographies/Paragraph";
+import Japanese from "../components/typography/Japanese";
+import Bold from "../components/typography/Bold";
+import Paragraph from "../components/typography/Paragraph";
 import { BottomNavigation, NavigationLink } from "../components/navigations/BottomNavigation";
 
 const Index = () => {

@@ -3,10 +3,10 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 // Components
-import Paragraph from "../../components/typographies/Paragraph";
-import Bold from "../../components/typographies/Bold";
-import Japanese from "../../components/typographies/Japanese";
-import Header from "../../components/typographies/Header";
+import Paragraph from "../../components/typography/Paragraph";
+import Bold from "../../components/typography/Bold";
+import Japanese from "../../components/typography/Japanese";
+import Header from "../../components/typography/Header";
 import {
   BottomNavigation,
   NavigationLink,
