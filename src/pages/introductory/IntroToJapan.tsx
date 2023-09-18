@@ -12,7 +12,7 @@ import {
   NavigationLink,
 } from "../../components/navigations/BottomNavigation";
 
-const Index = () => {
+const IntroToJapan = () => {
   return (
     <>
       {/* Main Section */}
@@ -162,4 +162,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default IntroToJapan;
