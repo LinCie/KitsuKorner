@@ -13,7 +13,7 @@ const Japanese = (props: Props) => {
       paragraph
       textAlign="justify"
       sx={{
-        textIndent: 25,
+        textIndent: 30,
       }}
     >
       {children}

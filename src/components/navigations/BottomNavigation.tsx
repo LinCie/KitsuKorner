@@ -31,6 +31,9 @@ export const NavigationLink = (props: NavigationLinkProps) => {
         alignItems="center"
         gap="10px"
         flexDirection={left ? "row" : "row-reverse"}
+        sx={{
+          maxWidth: "150px"
+        }}
       >
         {left ? <ArrowBackIcon /> : <ArrowForwardIcon />}
         {children}
