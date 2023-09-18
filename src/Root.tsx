@@ -136,7 +136,7 @@ const Header = (props: HeaderProps) => {
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo} alt="" style={{width: "35px", marginRight: "5px"}} />
+          <img src={logo} alt="" style={{width: "30px", marginRight: "5px"}} />
           <Link
             component={RouterLink}
             variant="h6"
@@ -241,9 +241,9 @@ const Root = () => {
       <Header handleDisplayMode={handleDisplayMode} displayMode={isDark} />
       <Box
         sx={{
-          marginTop: { xs: 11, sm: 14 },
+          marginTop: { xs: 10, sm: 12 },
           marginLeft: { xs: "0px", sm: "240px" },
-          paddingX: {xs: 5, sm: 10},
+          paddingX: {xs: 3, sm: 5}  ,
         }}
       >
         <Outlet />
