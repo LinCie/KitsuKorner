@@ -1,23 +1,17 @@
-// MUI Components
-import Typography from "@mui/material/Typography";
 // Components
+import Title from "../components/typography/Title";
 import Japanese from "../components/typography/Japanese";
 import Bold from "../components/typography/Bold";
 import Paragraph from "../components/typography/Paragraph";
-import { BottomNavigation, NavigationLink } from "../components/navigations/BottomNavigation";
+import {
+  BottomNavigation,
+  NavigationLink,
+} from "../components/navigations/BottomNavigation";
 
 const Index = () => {
   return (
     <>
-      <Typography
-        component="h1"
-        variant="h4"
-        fontWeight="bold"
-        textAlign="center"
-        marginBottom="1rem"
-      >
-        Welcome to KitsuKorner
-      </Typography>
+      <Title>Welcome to KitsuKorner</Title>
       <Paragraph>
         <Bold>
           Kon'nichiwa (<Japanese>こんにちは</Japanese>)!
@@ -45,7 +39,9 @@ const Index = () => {
       </Paragraph>
       <BottomNavigation>
         <div></div>
-        <NavigationLink link="/introductory/intro-to-japanese">Introduction to Japanese</NavigationLink>
+        <NavigationLink link="/introductory/intro-to-japanese">
+          Introduction to Japanese
+        </NavigationLink>
       </BottomNavigation>
     </>
   );

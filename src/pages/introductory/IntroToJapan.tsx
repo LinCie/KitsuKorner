@@ -11,20 +11,13 @@ import {
   BottomNavigation,
   NavigationLink,
 } from "../../components/navigations/BottomNavigation";
+import Title from "../../components/typography/Title";
 
 const IntroToJapan = () => {
   return (
     <>
       {/* Main Section */}
-      <Typography
-        component="h1"
-        variant="h4"
-        fontWeight="bold"
-        textAlign="center"
-        marginBottom="1rem"
-      >
-        Introduction to Japanese
-      </Typography>
+      <Title>Introduction to Japanese</Title>
       <Paragraph>
         The Japanese language, with its rich history and unique writing systems,
         is a captivating and rewarding journey for language enthusiasts. In this
