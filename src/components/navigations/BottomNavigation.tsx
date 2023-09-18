@@ -32,7 +32,8 @@ export const NavigationLink = (props: NavigationLinkProps) => {
         gap="10px"
         flexDirection={left ? "row" : "row-reverse"}
         sx={{
-          maxWidth: "150px"
+          maxWidth: {xs: "150px", sm: "500px"},
+          height: "100%"
         }}
       >
         {left ? <ArrowBackIcon /> : <ArrowForwardIcon />}
