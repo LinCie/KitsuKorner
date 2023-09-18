@@ -49,7 +49,7 @@ const Index = () => {
           listStyleType: "disc",
           p: 0,
           pb: "1rem",
-          px: 5,
+          px: 2,
           "& .MuiListItem-root": {
             display: "list-item",
             p: 0,
