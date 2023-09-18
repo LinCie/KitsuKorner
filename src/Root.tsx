@@ -26,6 +26,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { lightMode, darkMode, DisplaySwitch } from "./theme";
 import { createTheme } from "@mui/material";
+// Images
+import logo from './assets/logo.png'
 // Pages
 import { pages } from "./pages";
 
@@ -134,6 +136,7 @@ const Header = (props: HeaderProps) => {
           >
             <MenuIcon />
           </IconButton>
+          <img src={logo} alt="" style={{width: "35px", marginRight: "5px"}} />
           <Link
             component={RouterLink}
             variant="h6"
