@@ -17,6 +17,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Link from "@mui/material/Link";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // MUI Icons
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -27,7 +28,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { lightMode, darkMode, DisplaySwitch } from "./theme";
 import { createTheme } from "@mui/material";
 // Images
-import logo from './assets/logo.png'
+import logo from "./assets/logo.png";
 // Pages
 import { pages } from "./pages";
 
@@ -42,7 +43,7 @@ const DrawerContent = () => {
           const regex = new RegExp(`\/${page.root}(.*)`);
           const [expanded, setExpanded] = useState(
             location.pathname.match(regex) ? true : false
-          )
+          );
           const handleAccordionChange = () => {
             setExpanded((prevExpanded) => !prevExpanded);
           };
@@ -53,7 +54,7 @@ const DrawerContent = () => {
               onChange={handleAccordionChange}
               key={page.level}
               sx={{
-                width: "240px"
+                width: "240px",
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -115,6 +116,8 @@ const Header = (props: HeaderProps) => {
   const { displayMode, handleDisplayMode } = props;
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
+
   const handleSwitchChange = () => {
     handleDisplayMode();
   };
@@ -136,7 +139,11 @@ const Header = (props: HeaderProps) => {
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo} alt="" style={{width: "30px", marginRight: "5px"}} />
+          <img
+            src={logo}
+            alt=""
+            style={{ width: "30px", marginRight: "5px" }}
+          />
           <Link
             component={RouterLink}
             variant="h6"
@@ -175,50 +182,15 @@ const Header = (props: HeaderProps) => {
       >
         <Drawer
           anchor="left"
-          variant="temporary"
-          open={drawerOpen}
+          variant={isSmallScreen ? "temporary" : "permanent"}
+          open={isSmallScreen ? drawerOpen : true}
           onClose={() => setDrawerOpen(false)}
           ModalProps={{
             keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": { boxSizing: "border-box" },
-            // "& ::-webkit-scrollbar": {
-            //   width: "8px",
-            // },
-            // "& ::-webkit-scrollbar-track": {
-            //   background: "#f1f1f1",
-            // },
-            // "& ::-webkit-scrollbar-thumb": {
-            //   backgroundColor: displayMode ? "black" : "primary.main",
-            //   borderRadius: "5px",
-            //   border: "2px #f1f1f1 solid",
-            // },
           }}
-        >
-          <DrawerContent />
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-            },
-            // "& ::-webkit-scrollbar": {
-            //   width: "8px",
-            // },
-            // "& ::-webkit-scrollbar-track": {
-            //   background: "#f1f1f1",
-            // },
-            // "& ::-webkit-scrollbar-thumb": {
-            //   backgroundColor: displayMode ? "black" : "primary.main",
-            //   borderRadius: "5px",
-            //   border: "2px #f1f1f1 solid",
-            // },
-          }}
-          open
         >
           <DrawerContent />
         </Drawer>
@@ -241,9 +213,9 @@ const Root = () => {
       <Header handleDisplayMode={handleDisplayMode} displayMode={isDark} />
       <Box
         sx={{
-          marginTop: { xs: 10, sm: 12 },
+          marginTop: { xs: 10, sm: 15 },
           marginLeft: { xs: "0px", sm: "240px" },
-          paddingX: {xs: 3, sm: 5}  ,
+          paddingX: { xs: 3, sm: 8 },
         }}
       >
         <Outlet />
