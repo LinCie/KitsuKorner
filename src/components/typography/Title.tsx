@@ -10,9 +10,8 @@ const Title = (props: Props) => {
   return (
     <Typography
       component="h1"
-      variant="h4"
+      variant="h5"
       fontWeight="bold"
-      textAlign="center"
       marginBottom="1rem"
     >
       {children}

@@ -1,7 +1,35 @@
 import Switch from "@mui/material/Switch";
 import { ThemeOptions, styled } from "@mui/material/styles";
 
+const typography = {
+  h5: {
+    fontSize: "1.4rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.5rem",
+    },
+  },
+  h6: {
+    fontSize: "1rem",
+    "@media (min-width:600px)": {
+      fontSize: "1.1rem",
+    },
+  },
+  body1: {
+    fontSize: "0.9rem",
+    "@media (min-width:600px)": {
+      fontSize: "1rem",
+    },
+  },
+  body2: {
+    fontSize: "0.8rem",
+    "@media (min-width:600px)": {
+      fontSize: "0.9rem",
+    },
+  },
+};
+
 export const lightMode: ThemeOptions = {
+  typography: typography,
   palette: {
     mode: "light",
     primary: {
@@ -20,6 +48,7 @@ export const lightMode: ThemeOptions = {
 };
 
 export const darkMode: ThemeOptions = {
+  typography: typography,
   palette: {
     mode: "dark",
     primary: {

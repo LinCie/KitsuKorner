@@ -41,17 +41,15 @@ const IntroToJapan = () => {
         sx={{
           listStyleType: "disc",
           p: 0,
-          pb: "1rem",
           px: 2,
           "& .MuiListItem-root": {
             display: "list-item",
             p: 0,
-            pb: 1,
           },
         }}
       >
         <ListItem>
-          <Typography component="p" variant="body1" textAlign="justify">
+          <Typography paragraph textAlign="justify">
             <Bold>Hiragana</Bold> (
             <Bold>
               <Japanese>平仮名</Japanese>
@@ -65,7 +63,7 @@ const IntroToJapan = () => {
           </Typography>
         </ListItem>
         <ListItem>
-          <Typography component="p" variant="body1" textAlign="justify">
+          <Typography paragraph textAlign="justify">
             <Bold>Katakana</Bold> (
             <Bold>
               <Japanese>片仮名</Japanese>
@@ -81,7 +79,7 @@ const IntroToJapan = () => {
           </Typography>
         </ListItem>
         <ListItem>
-          <Typography component="p" variant="body1" textAlign="justify">
+          <Typography paragraph textAlign="justify">
             <Bold>Kanji</Bold> (
             <Bold>
               <Japanese>漢字</Japanese>

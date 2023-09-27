@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { Link as RouterLink } from "react-router-dom";
 // MUI Components
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 // MUI Icons
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -18,33 +19,33 @@ interface NavigationLinkProps {
 export const NavigationLink = (props: NavigationLinkProps) => {
   const { left, children, link } = props;
   return (
-    <Link
-      component={RouterLink}
-      variant="body2"
-      underline="hover"
-      to={link}
-      fontWeight="bold"
-      color="primary.main"
-    >
+    <Link component={RouterLink} variant="body2" underline="hover" to={link}>
       <Box
         display="flex"
         alignItems="center"
         gap="10px"
         flexDirection={left ? "row" : "row-reverse"}
         sx={{
-          maxWidth: {xs: "150px", sm: "500px"},
-          height: "100%"
+          maxWidth: { xs: "150px", sm: "500px" },
+          height: "100%",
         }}
       >
         {left ? <ArrowBackIcon /> : <ArrowForwardIcon />}
-        {children}
+        <Typography
+          component="div"
+          variant="body2"
+          fontWeight="bold"
+          color="primary.main"
+        >
+          {children}
+        </Typography>
       </Box>
     </Link>
   );
 };
 
 interface BottomNavigationProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export const BottomNavigation = (props: BottomNavigationProps) => {
