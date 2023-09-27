@@ -1,6 +1,7 @@
 // Introductory
 import IntroToJapan from "./pages/introductory/IntroToJapan"
 import IntroToHiragana from "./pages/introductory/IntroToHiragana"
+import IntroToKatakana from "./pages/introductory/IntroToKatakana"
 
 export const pages = [
   {
@@ -20,6 +21,7 @@ export const pages = [
       {
         name: "Introduction to Katakana",
         link: "intro-to-katakana",
+        element: <IntroToKatakana />
       },
     ]
   },
