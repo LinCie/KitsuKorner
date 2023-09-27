@@ -15,7 +15,7 @@ const IntroToHiragana = () => {
         <NavigationLink left link="/introductory/intro-to-japanese">
           Introduction to Japanese
         </NavigationLink>
-        <NavigationLink link="/introductory/intro-to-katak">
+        <NavigationLink link="/introductory/intro-to-katakana">
           Introduction to Katakana
         </NavigationLink>
       </BottomNavigation>
