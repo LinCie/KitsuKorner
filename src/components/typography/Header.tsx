@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Typography from "@mui/material/Typography";
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const Header = (props: Props) => {
