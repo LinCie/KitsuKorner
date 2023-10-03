@@ -5,7 +5,7 @@ import {
   NavigationLink,
 } from "../../components/navigations/BottomNavigation";
 
-const IntroToHiragana = () => {
+const IntroToKatakana = () => {
   return (
     <>
       {/* Main Section */}
@@ -15,12 +15,12 @@ const IntroToHiragana = () => {
         <NavigationLink left link="/introductory/intro-to-hiragana">
           Introduction to Hiragana
         </NavigationLink>
-        <NavigationLink link="/introductory/intro-to-katak">
-          Lorem Ipsum Dolor Sit Amet
+        <NavigationLink link="/beginner/state-of-being">
+          State-of-Being
         </NavigationLink>
       </BottomNavigation>
     </>
   );
 };
 
-export default IntroToHiragana;
+export default IntroToKatakana;

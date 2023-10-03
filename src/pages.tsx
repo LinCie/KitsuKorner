@@ -2,6 +2,8 @@
 import IntroToJapan from "./pages/introductory/IntroToJapan"
 import IntroToHiragana from "./pages/introductory/IntroToHiragana"
 import IntroToKatakana from "./pages/introductory/IntroToKatakana"
+// Beginner
+import StateOfBeing from "./pages/Beginner/StateOfBeing"
 
 export const pages = [
   {
@@ -28,7 +30,13 @@ export const pages = [
   {
     level: "Beginner",
     root: "beginner",
-    contents: []
+    contents: [
+      {
+        name: "State-of-Being",
+        link: "state-of-being",
+        element: <StateOfBeing />
+      }
+    ]
   },
   {
     level: "Intermediate",
