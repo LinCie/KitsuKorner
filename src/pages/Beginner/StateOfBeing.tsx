@@ -70,7 +70,7 @@ const NonPastSection = () => {
 
 const NegativeNonPastSection = () => {
   return (
-    <Box component="section" id="non-past-copular">
+    <Box component="section" id="negative-non-past-copular">
       <Header>Copular Sentences: Negative Non Past Tense</Header>
       <Paragraph>
         Much like in English, you can transform copular sentences into negative
@@ -100,7 +100,7 @@ const NegativeNonPastSection = () => {
 
 const PastSection = () => {
   return (
-    <Box component="section" id="non-past-copular">
+    <Box component="section" id="past-copular">
       <Header>Copular Sentences: Past Tense</Header>
       <Paragraph></Paragraph>
       <Example></Example>
