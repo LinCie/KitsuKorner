@@ -6,6 +6,7 @@ import Header from "../../components/typography/Header";
 import Paragraph from "../../components/typography/Paragraph";
 import Japanese from "../../components/typography/Japanese";
 import Bold from "../../components/typography/Bold";
+import { KeyPoint, KeyPointText } from "../../components/components/KeyPoint";
 import {
   Vocabulary,
   VocabularyItem,
@@ -42,6 +43,13 @@ const NonPastSection = () => {
         polite speech. It is often used in business settings, with strangers, or
         when speaking with superiors, to show respect and maintain politeness.
       </Paragraph>
+      <KeyPoint>
+        <KeyPointText>
+          If you want to declare something, you'll have to attach the thing you
+          want to declare with "<Japanese>だ</Japanese>" in informal situations,
+          or "<Japanese>です</Japanese>" in formal situations.
+        </KeyPointText>
+      </KeyPoint>
       <Vocabulary>
         <VocabularyItem kana="学生" furigana="がくせい" translation="Student" />
         <VocabularyItem kana="本" furigana="ほん" translation="Book" />
@@ -80,10 +88,18 @@ const NegativeNonPastSection = () => {
         the negative non past tense in informal language, you can replace "
         <Japanese>だ</Japanese>" with "<Japanese>ではない</Japanese>". In formal
         situtation, the copula "<Japanese>です</Japanese>" can be replaced with
-        "<Japanese>ではありません</Japanese>"
+        "<Japanese>ではありません</Japanese>".
       </Paragraph>
+      <KeyPoint>
+        <KeyPointText>
+          Similar to Non Past Tense, if you want to declare something as a
+          negation (declaring something that is not), you can attach "
+          <Japanese>ではない</Japanese>" in informal situations, and "
+          <Japanese>ではありません</Japanese>" in formal situations.
+        </KeyPointText>
+      </KeyPoint>
       <Example>
-      <ExampleItem
+        <ExampleItem
           japanese="犬でわない"
           reading="inu dewanai"
           translation="(It's) not a dog"
@@ -102,8 +118,56 @@ const PastSection = () => {
   return (
     <Box component="section" id="past-copular">
       <Header>Copular Sentences: Past Tense</Header>
-      <Paragraph></Paragraph>
-      <Example></Example>
+      <Paragraph>
+        In Japanese, the copular past tense is used to express past states or
+        actions using the copula. As you have learned, there are 2 non past
+        copulars, "<Japanese>だ</Japanese>" and "<Japanese>です</Japanese>". In
+        order to use it to express past states, you'll have to transform it into
+        "<Japanese>だった</Japanese>" and "<Japanese>でした</Japanese>"
+        respectively.
+      </Paragraph>
+      <Vocabulary>
+        <VocabularyItem kana="元気" furigana="げんき" translation="Healthy" />
+      </Vocabulary>
+      <Example>
+        <ExampleItem
+          japanese="元気だった"
+          reading="Genki datta"
+          translation="(I) was healthy"
+        />
+        <ExampleItem
+          japanese="学生でした"
+          reading="Gakusei deshita"
+          translation="(I) was a student"
+        />
+      </Example>
+    </Box>
+  );
+};
+
+const NegativePastSection = () => {
+  return (
+    <Box component="section" id="negative-past-copular">
+      <Header>Copular Sentences: Negative Past Tense</Header>
+      <Paragraph>
+        Similar to negative non past tense, the negative copular past tense is
+        used to describe past states or conditions that were not true or actions
+        that did not happen in the past. It involves attaching "
+        <Japanese>ではなかった</Japanese>" for informal situations, or "
+        <Japanese>ではありませんでした</Japanese>" for formal situations.
+      </Paragraph>
+      <Example>
+        <ExampleItem
+          japanese="犬ではなかった"
+          reading="Inu dewanakatta"
+          translation="(It) wasn't a dog"
+        />
+        <ExampleItem
+          japanese="学生ではありませんでした"
+          reading="Gakusei dewaarimasendeshita"
+          translation="(I) wasn't a student"
+        />
+      </Example>
     </Box>
   );
 };
@@ -116,6 +180,7 @@ const StateOfBeing = () => {
       <NonPastSection />
       <NegativeNonPastSection />
       <PastSection />
+      <NegativePastSection />
       {/* Navigation */}
       <BottomNavigation>
         <NavigationLink left link="/introductory/intro-to-katakana">
