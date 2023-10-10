@@ -33,7 +33,11 @@ export const WrittenExercise = (props: ExerciseProps) => {
     <Box>
       <Header>Written Exercise</Header>
       <Typography component="p" variant="body1" mb="1rem">
-        Note: You're encouraged to use third party dictionary such as <Link href="https://jisho.org/" target="_blank">Jisho</Link> to look up several vocabularies in this exercise
+        Note: You're encouraged to use third party dictionary such as{" "}
+        <Link href="https://jisho.org/" target="_blank">
+          Jisho
+        </Link>{" "}
+        to look up several vocabularies in this exercise
       </Typography>
       <List
         sx={{
@@ -81,15 +85,28 @@ export const WrittenExerciseItemJapanese = (props: ExerciseItemProps) => {
         marginBottom="1rem"
         sx={{
           borderBottomWidth: "1px",
-          borderBottomStyle: "solid",
+          borderBottomStyle: { xs: "hidden", sm: "solid" },
           borderBottomColor: "primary.main",
+          flexDirection: { xs: "column", sm: "row" },
         }}
       >
-        <Typography component="p" variant="body1">
+        <Typography
+          component="p"
+          variant="body1"
+          sx={{
+            mb: { xs: "0.25rem", sm: "0" },
+            width: { xs: "100%", sm: "50%" },
+          }}
+        >
           {children}
         </Typography>
-        <Box display="flex">
-          <Typography variant="body1" component="p" mx="1rem">
+        <Box display="flex" sx={{ width: { xs: "100%", sm: "50%" } }}>
+          <Typography
+            variant="body1"
+            component="p"
+            mx="1rem"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
             {" = "}
           </Typography>
           <Box
@@ -99,7 +116,7 @@ export const WrittenExerciseItemJapanese = (props: ExerciseItemProps) => {
               borderBottomWidth: "1px",
               borderBottomStyle: "dashed",
               borderBottomColor: "primary.main",
-              width: { xs: "200px", sm: "450px" },
+              width: "100%",
               px: "1rem",
               mb: "0.25rem",
             }}
