@@ -15,8 +15,8 @@ const IntroToKatakana = () => {
         <NavigationLink left link="/introductory/intro-to-hiragana">
           Introduction to Hiragana
         </NavigationLink>
-        <NavigationLink link="/beginner/state-of-being">
-          State-of-Being
+        <NavigationLink link="/beginner/state-of-being-copular">
+          State-of-Being: Copular Sentence
         </NavigationLink>
       </BottomNavigation>
     </>

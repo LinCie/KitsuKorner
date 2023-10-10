@@ -200,11 +200,11 @@ const ExerciseSection = () => {
   );
 };
 
-const StateOfBeing = () => {
+const StateOfBeingCopular = () => {
   return (
     <>
       {/* Main Section */}
-      <Title>State-of-Being</Title>
+      <Title>State-of-Being: Copular Sentence</Title>
       <NonPastSection />
       <NegativeNonPastSection />
       <PastSection />
@@ -223,4 +223,4 @@ const StateOfBeing = () => {
   );
 };
 
-export default StateOfBeing;
+export default StateOfBeingCopular;

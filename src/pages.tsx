@@ -3,7 +3,7 @@ import IntroToJapan from "./pages/introductory/IntroToJapan"
 import IntroToHiragana from "./pages/introductory/IntroToHiragana"
 import IntroToKatakana from "./pages/introductory/IntroToKatakana"
 // Beginner
-import StateOfBeing from "./pages/Beginner/StateOfBeing"
+import StateOfBeingCopular from "./pages/Beginner/StateOfBeingCopular"
 
 export const pages = [
   {
@@ -32,9 +32,9 @@ export const pages = [
     root: "beginner",
     contents: [
       {
-        name: "State-of-Being",
-        link: "state-of-being",
-        element: <StateOfBeing />
+        name: "State-of-Being: Copular Sentence",
+        link: "state-of-being-copular",
+        element: <StateOfBeingCopular />
       }
     ]
   },
