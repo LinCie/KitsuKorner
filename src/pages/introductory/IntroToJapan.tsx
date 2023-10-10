@@ -2,6 +2,7 @@
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import Box from "@mui/material/Box";
 // Components
 import Paragraph from "../../components/typography/Paragraph";
 import Bold from "../../components/typography/Bold";
@@ -13,24 +14,9 @@ import {
 } from "../../components/navigations/BottomNavigation";
 import Title from "../../components/typography/Title";
 
-const IntroToJapan = () => {
+const WritingSystemSection = () => {
   return (
-    <>
-      {/* Main Section */}
-      <Title>Introduction to Japanese</Title>
-      <Paragraph>
-        The Japanese language, with its rich history and unique writing systems,
-        is a captivating and rewarding journey for language enthusiasts. In this
-        section, we'll delve into the fundamentals of the Japanese language,
-        giving you a taste of what awaits on your path to Japanese fluency.
-      </Paragraph>
-      <Paragraph>
-        The Japanese language is believed to have evolved over thousands of
-        years. While it is considered a language isolate, meaning it has no
-        known relation to any other language, it has been influenced by Chinese,
-        Korean, and other neighboring languages over time.
-      </Paragraph>
-      {/* Writing System */}
+    <Box component="section" id="writing-system">
       <Header>Writing Systems</Header>
       <Paragraph>
         One of the most distinctive aspects of Japanese is its writing systems.
@@ -98,7 +84,13 @@ const IntroToJapan = () => {
           </Typography>
         </ListItem>
       </List>
-      {/* Grammar structure */}
+    </Box>
+  );
+};
+
+const GrammarSection = () => {
+  return (
+    <Box component="section" id="grammar">
       <Header>Grammar and Sentence Structure</Header>
       <Paragraph>
         Japanese sentence structure differs from English and many other
@@ -112,7 +104,13 @@ const IntroToJapan = () => {
         used to mark the topic of a sentence, and "<Japanese>を</Japanese>" (o)
         indicates the direct object of a verb.
       </Paragraph>
-      {/* Pronounciation */}
+    </Box>
+  );
+};
+
+const PronounciationSection = () => {
+  return (
+    <Box component="section" id="pronounciation">
       <Header>Pronunciation</Header>
       <Paragraph>
         Japanese pronunciation is generally straightforward once you grasp the
@@ -126,7 +124,13 @@ const IntroToJapan = () => {
         levels, known as "keigo," also influence pronunciation and word choice,
         emphasizing the importance of context and respect in communication.
       </Paragraph>
-      {/* Honorifics */}
+    </Box>
+  );
+};
+
+const HonorificsSection = () => {
+  return (
+    <Box component="section" id="honorifics">
       <Header>Politeness and Honorifics</Header>
       <Paragraph>
         Japanese culture places great importance on politeness, and this is
@@ -140,6 +144,30 @@ const IntroToJapan = () => {
         respect. Understanding when and how to use honorifics is crucial in
         Japanese society.
       </Paragraph>
+    </Box>
+  );
+};
+const IntroToJapan = () => {
+  return (
+    <>
+      {/* Main Section */}
+      <Title>Introduction to Japanese</Title>
+      <Paragraph>
+        The Japanese language, with its rich history and unique writing systems,
+        is a captivating and rewarding journey for language enthusiasts. In this
+        section, we'll delve into the fundamentals of the Japanese language,
+        giving you a taste of what awaits on your path to Japanese fluency.
+      </Paragraph>
+      <Paragraph>
+        The Japanese language is believed to have evolved over thousands of
+        years. While it is considered a language isolate, meaning it has no
+        known relation to any other language, it has been influenced by Chinese,
+        Korean, and other neighboring languages over time.
+      </Paragraph>
+      <WritingSystemSection />
+      <GrammarSection />
+      <PronounciationSection />
+      <HonorificsSection />
       {/* Navigation */}
       <BottomNavigation>
         <NavigationLink left link="/">
