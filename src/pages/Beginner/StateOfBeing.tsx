@@ -13,6 +13,10 @@ import {
 } from "../../components/components/Vocabulary";
 import { Example, ExampleItem } from "../../components/components/Example";
 import {
+  WrittenExercise,
+  WrittenExerciseItemJapanese,
+} from "../../components/components/Exercise";
+import {
   BottomNavigation,
   NavigationLink,
 } from "../../components/navigations/BottomNavigation";
@@ -172,6 +176,30 @@ const NegativePastSection = () => {
   );
 };
 
+const ExerciseSection = () => {
+  return (
+    <Box component="section" id="exercise">
+      <WrittenExercise>
+        <WrittenExerciseItemJapanese answer="犬だ / 犬です">
+          (It's) a dog.
+        </WrittenExerciseItemJapanese>
+        <WrittenExerciseItemJapanese answer="先生だった / 先生でした">
+          (I) was a teacher.
+        </WrittenExerciseItemJapanese>
+        <WrittenExerciseItemJapanese answer="元気だ / 元気です">
+          (I'm) healthy / fine.
+        </WrittenExerciseItemJapanese>
+        <WrittenExerciseItemJapanese answer="動物ではない / 動物ではありません">
+          (It's) not an animal.
+        </WrittenExerciseItemJapanese>
+        <WrittenExerciseItemJapanese answer="本ではなかった / 本ではありませんでした">
+          (It) wasn't a book.
+        </WrittenExerciseItemJapanese>
+      </WrittenExercise>
+    </Box>
+  );
+};
+
 const StateOfBeing = () => {
   return (
     <>
@@ -181,6 +209,7 @@ const StateOfBeing = () => {
       <NegativeNonPastSection />
       <PastSection />
       <NegativePastSection />
+      <ExerciseSection />
       {/* Navigation */}
       <BottomNavigation>
         <NavigationLink left link="/introductory/intro-to-katakana">
