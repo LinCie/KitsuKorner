@@ -15,6 +15,8 @@ import { Example, ExampleItem } from "../../components/components/Example";
 import {
   WrittenExercise,
   WrittenExerciseItemJapanese,
+  ChoiceExercise,
+  ChoiceExerciseItemProps,
 } from "../../components/components/Exercise";
 import {
   BottomNavigation,
@@ -176,9 +178,9 @@ const NegativePastSection = () => {
   );
 };
 
-const ExerciseSection = () => {
+const WrittenExerciseSection = () => {
   return (
-    <Box component="section" id="exercise">
+    <Box component="section" id="written-exercise">
       <WrittenExercise>
         <WrittenExerciseItemJapanese answer="犬だ / 犬です">
           (It's) a dog.
@@ -200,6 +202,83 @@ const ExerciseSection = () => {
   );
 };
 
+const ChoiceExerciseSection = () => {
+  const items: ChoiceExerciseItemProps[] = [
+    {
+      question: "(It's) a building",
+      answers: [
+        {
+          id: 1,
+          answer: "ビルだった",
+        },
+        {
+          id: 2,
+          answer: "ビルではない",
+        },
+        {
+          id: 3,
+          answer: "ビルだ",
+        },
+        {
+          id: 4,
+          answer: "ビルではなかった",
+        },
+      ],
+      correct: 3,
+    },
+    {
+      question: "(It's) not a train",
+      answers: [
+        {
+          id: 1,
+          answer: "電車ではない",
+        },
+        {
+          id: 2,
+          answer: "電車ではなかった",
+        },
+        {
+          id: 3,
+          answer: "電車だった",
+        },
+        {
+          id: 4,
+          answer: "電車だ",
+        },
+      ],
+      correct: 1,
+    },
+    {
+      question: "(It) was a cinema",
+      answers: [
+        {
+          id: 1,
+          answer: "映画館だ",
+        },
+        {
+          id: 2,
+          answer: "映画館ではない",
+        },
+        {
+          id: 3,
+          answer: "映画館だった",
+        },
+        {
+          id: 4,
+          answer: "映画館ではなかった",
+        },
+      ],
+      correct: 3,
+    },
+  ];
+
+  return (
+    <Box component="section" id="choice-exercise">
+      <ChoiceExercise items={items} />
+    </Box>
+  );
+};
+
 const StateOfBeingCopular = () => {
   return (
     <>
@@ -209,7 +288,8 @@ const StateOfBeingCopular = () => {
       <NegativeNonPastSection />
       <PastSection />
       <NegativePastSection />
-      <ExerciseSection />
+      <WrittenExerciseSection />
+      <ChoiceExerciseSection />
       {/* Navigation */}
       <BottomNavigation>
         <NavigationLink left link="/introductory/intro-to-katakana">
