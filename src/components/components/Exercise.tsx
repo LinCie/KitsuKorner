@@ -11,10 +11,10 @@ import Link from "@mui/material/Link";
 import Header from "../typography/Header";
 import Japanese from "../typography/Japanese";
 
+// Declare revealed context type
 interface RevealContextType {
   isRevealed: boolean;
 }
-
 const RevealContext = createContext<RevealContextType>({ isRevealed: false });
 
 interface ExerciseProps {
@@ -23,8 +23,9 @@ interface ExerciseProps {
 
 export const WrittenExercise = (props: ExerciseProps) => {
   const { children } = props;
-  const [isRevealed, setIsRevealed] = useState<boolean>(false);
 
+  // Add revealed functionality based on user click event
+  const [isRevealed, setIsRevealed] = useState<boolean>(false);
   const handleRevealChange = () => {
     setIsRevealed(!isRevealed);
   };
@@ -32,6 +33,7 @@ export const WrittenExercise = (props: ExerciseProps) => {
   return (
     <Box mb="1rem" id="written-exercise">
       <Header>Written Exercise</Header>
+      {/* Exercise Note */}
       <Typography component="p" variant="body1" mb="1rem">
         Note: You're encouraged to use third party dictionary such as{" "}
         <Link href="https://jisho.org/" target="_blank">
@@ -39,6 +41,7 @@ export const WrittenExercise = (props: ExerciseProps) => {
         </Link>{" "}
         to look up several vocabularies in this exercise
       </Typography>
+      {/* Exercise List */}
       <List
         sx={{
           listStyleType: "decimal",
@@ -55,6 +58,7 @@ export const WrittenExercise = (props: ExerciseProps) => {
           {children}
         </RevealContext.Provider>
       </List>
+      {/* Button that is used to set isRevealed */}
       <Box display="flex" justifyContent="flex-end">
         <Button
           variant={isRevealed ? "contained" : "outlined"}
@@ -125,6 +129,7 @@ export const WrittenExerciseItemJapanese = (props: ExerciseItemProps) => {
               component="p"
               variant="body1"
               sx={{
+                // Allow select and show the answer based on isRevealed
                 opacity: isRevealed ? "1" : "0",
                 userSelect: isRevealed ? "inherit" : "none",
               }}
@@ -156,6 +161,8 @@ const ChoiseExerciseItem = (props: ChoiceExerciseItemProps) => {
   const { isRevealed } = useContext(RevealContext);
   const [userAnswer, setUserAnswer] = useState<number | undefined>(undefined);
 
+  // A function that change none if isRevealed is true and provide functionality 
+  // that can setUserAnswer based on the button clicked, remove answer if user select the same answer
   const handleAnswer = (number: number) => {
     if (isRevealed) {
       return;
