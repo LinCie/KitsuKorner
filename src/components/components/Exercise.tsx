@@ -57,7 +57,7 @@ export const WrittenExercise = (props: ExerciseProps) => {
       </List>
       <Box display="flex" justifyContent="flex-end">
         <Button
-          variant="outlined"
+          variant={isRevealed ? "contained" : "outlined"}
           sx={{ textTransform: "none" }}
           onClick={handleRevealChange}
           aria-label="reveal answer"
@@ -124,7 +124,10 @@ export const WrittenExerciseItemJapanese = (props: ExerciseItemProps) => {
             <Typography
               component="p"
               variant="body1"
-              sx={{ opacity: `${isRevealed ? "1" : "0"}` }}
+              sx={{
+                opacity: isRevealed ? "1" : "0",
+                userSelect: isRevealed ? "inherit" : "none",
+              }}
             >
               <Japanese>{answer}</Japanese>
             </Typography>
