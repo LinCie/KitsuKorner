@@ -14,7 +14,7 @@ import {
 import { Example, ExampleItem } from "../../components/components/Example";
 import {
   WrittenExercise,
-  WrittenExerciseItemJapanese,
+  WrittenExerciseProps,
   ChoiceExercise,
   ChoiceExerciseItemProps,
 } from "../../components/components/Exercise";
@@ -179,31 +179,38 @@ const NegativePastSection = () => {
 };
 
 const WrittenExerciseSection = () => {
+  const exerciseItems: WrittenExerciseProps["items"] = [
+    {
+      romaji: "(It's) a dog.",
+      japanese: "犬だ / 犬です",
+    },
+    {
+      romaji: "(I) was a teacher.",
+      japanese: "先生だった / 先生でした",
+    },
+    {
+      romaji: "(I'm) healthy / fine.",
+      japanese: "元気だ / 元気です",
+    },
+    {
+      romaji: "(It's) not an animal.",
+      japanese: "動物ではない / 動物ではありません",
+    },
+    {
+      romaji: "(It) wasn't a book.",
+      japanese: "本ではなかった / 本ではありませんでした",
+    },
+  ];
+
   return (
     <Box component="section" id="written-exercise">
-      <WrittenExercise>
-        <WrittenExerciseItemJapanese answer="犬だ / 犬です">
-          (It's) a dog.
-        </WrittenExerciseItemJapanese>
-        <WrittenExerciseItemJapanese answer="先生だった / 先生でした">
-          (I) was a teacher.
-        </WrittenExerciseItemJapanese>
-        <WrittenExerciseItemJapanese answer="元気だ / 元気です">
-          (I'm) healthy / fine.
-        </WrittenExerciseItemJapanese>
-        <WrittenExerciseItemJapanese answer="動物ではない / 動物ではありません">
-          (It's) not an animal.
-        </WrittenExerciseItemJapanese>
-        <WrittenExerciseItemJapanese answer="本ではなかった / 本ではありませんでした">
-          (It) wasn't a book.
-        </WrittenExerciseItemJapanese>
-      </WrittenExercise>
+      <WrittenExercise items={exerciseItems} />
     </Box>
   );
 };
 
 const ChoiceExerciseSection = () => {
-  const items: ChoiceExerciseItemProps[] = [
+  const exerciseItems: ChoiceExerciseItemProps[] = [
     {
       question: "(It's) a building",
       answers: [
@@ -274,7 +281,7 @@ const ChoiceExerciseSection = () => {
 
   return (
     <Box component="section" id="choice-exercise">
-      <ChoiceExercise items={items} />
+      <ChoiceExercise items={exerciseItems} />
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 // React
-import { ReactNode, createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 // MUI Component
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -17,12 +17,87 @@ interface RevealContextType {
 }
 const RevealContext = createContext<RevealContextType>({ isRevealed: false });
 
-interface ExerciseProps {
-  children?: ReactNode;
+interface WrittenExerciseItemProps {
+  item: {
+    romaji: string;
+    japanese: string;
+  };
 }
 
-export const WrittenExercise = (props: ExerciseProps) => {
-  const { children } = props;
+const WrittenExerciseItem = (props: WrittenExerciseItemProps) => {
+  const { item } = props;
+  const { isRevealed } = useContext(RevealContext);
+  return (
+    <ListItem>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        marginBottom="1rem"
+        sx={{
+          borderBottomWidth: "1px",
+          borderBottomStyle: { xs: "hidden", sm: "solid" },
+          borderBottomColor: "primary.main",
+          flexDirection: { xs: "column", sm: "row" },
+        }}
+      >
+        <Typography
+          component="p"
+          variant="body1"
+          sx={{
+            mb: { xs: "0.25rem", sm: "0" },
+            width: { xs: "100%", sm: "50%" },
+          }}
+        >
+          {item.romaji}
+        </Typography>
+        <Box display="flex" sx={{ width: { xs: "100%", sm: "50%" } }}>
+          <Typography
+            variant="body1"
+            component="p"
+            mx="1rem"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            {" = "}
+          </Typography>
+          <Box
+            display="flex"
+            justifyContent="center"
+            sx={{
+              borderBottomWidth: "1px",
+              borderBottomStyle: "dashed",
+              borderBottomColor: "primary.main",
+              width: "100%",
+              px: "1rem",
+              mb: "0.25rem",
+            }}
+          >
+            <Typography
+              component="p"
+              variant="body1"
+              sx={{
+                // Allow select and show the answer based on isRevealed
+                opacity: isRevealed ? "1" : "0",
+                userSelect: isRevealed ? "inherit" : "none",
+              }}
+            >
+              <Japanese>{item.japanese}</Japanese>
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </ListItem>
+  );
+};
+
+export interface WrittenExerciseProps {
+  items: {
+    romaji: string;
+    japanese: string;
+  }[];
+}
+
+export const WrittenExercise = (props: WrittenExerciseProps) => {
+  const { items } = props;
 
   // Add revealed functionality based on user click event
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
@@ -55,7 +130,9 @@ export const WrittenExercise = (props: ExerciseProps) => {
         }}
       >
         <RevealContext.Provider value={{ isRevealed }}>
-          {children}
+          {items.map((item) => {
+            return <WrittenExerciseItem item={item} />;
+          })}
         </RevealContext.Provider>
       </List>
       {/* Button that is used to set isRevealed */}
@@ -70,76 +147,6 @@ export const WrittenExercise = (props: ExerciseProps) => {
         </Button>
       </Box>
     </Box>
-  );
-};
-
-interface ExerciseItemProps {
-  children?: ReactNode;
-  answer?: string;
-}
-
-export const WrittenExerciseItemJapanese = (props: ExerciseItemProps) => {
-  const { children, answer } = props;
-  const { isRevealed } = useContext(RevealContext);
-  return (
-    <ListItem>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        marginBottom="1rem"
-        sx={{
-          borderBottomWidth: "1px",
-          borderBottomStyle: { xs: "hidden", sm: "solid" },
-          borderBottomColor: "primary.main",
-          flexDirection: { xs: "column", sm: "row" },
-        }}
-      >
-        <Typography
-          component="p"
-          variant="body1"
-          sx={{
-            mb: { xs: "0.25rem", sm: "0" },
-            width: { xs: "100%", sm: "50%" },
-          }}
-        >
-          {children}
-        </Typography>
-        <Box display="flex" sx={{ width: { xs: "100%", sm: "50%" } }}>
-          <Typography
-            variant="body1"
-            component="p"
-            mx="1rem"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            {" = "}
-          </Typography>
-          <Box
-            display="flex"
-            justifyContent="center"
-            sx={{
-              borderBottomWidth: "1px",
-              borderBottomStyle: "dashed",
-              borderBottomColor: "primary.main",
-              width: "100%",
-              px: "1rem",
-              mb: "0.25rem",
-            }}
-          >
-            <Typography
-              component="p"
-              variant="body1"
-              sx={{
-                // Allow select and show the answer based on isRevealed
-                opacity: isRevealed ? "1" : "0",
-                userSelect: isRevealed ? "inherit" : "none",
-              }}
-            >
-              <Japanese>{answer}</Japanese>
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-    </ListItem>
   );
 };
 
@@ -161,7 +168,7 @@ const ChoiseExerciseItem = (props: ChoiceExerciseItemProps) => {
   const { isRevealed } = useContext(RevealContext);
   const [userAnswer, setUserAnswer] = useState<number | undefined>(undefined);
 
-  // A function that change none if isRevealed is true and provide functionality 
+  // A function that change none if isRevealed is true and provide functionality
   // that can setUserAnswer based on the button clicked, remove answer if user select the same answer
   const handleAnswer = (number: number) => {
     if (isRevealed) {
