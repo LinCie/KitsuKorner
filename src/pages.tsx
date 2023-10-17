@@ -4,6 +4,7 @@ import IntroToHiragana from "./pages/introductory/IntroToHiragana"
 import IntroToKatakana from "./pages/introductory/IntroToKatakana"
 // Beginner
 import StateOfBeingCopular from "./pages/Beginner/StateOfBeingCopular"
+import TheParticleGa from "./pages/Beginner/TheParticleGa"
 
 export const pages = [
   {
@@ -35,6 +36,11 @@ export const pages = [
         name: "State-of-Being: Copular Sentence",
         link: "state-of-being-copular",
         element: <StateOfBeingCopular />
+      },
+      {
+        name: "The Particle「が」",
+        link: "the-particle-ga",
+        element: <TheParticleGa />
       }
     ]
   },

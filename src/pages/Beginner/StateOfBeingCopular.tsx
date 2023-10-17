@@ -302,8 +302,8 @@ const StateOfBeingCopular = () => {
         <NavigationLink left link="/introductory/intro-to-katakana">
           Introduction to Katakana
         </NavigationLink>
-        <NavigationLink link="/introductory/intro-to-katakana">
-          Lorem Ipsum Dolor Sit Amet
+        <NavigationLink link="/beginner/the-particle-ga">
+          The Particle<Japanese>「が」</Japanese>
         </NavigationLink>
       </BottomNavigation>
     </>
