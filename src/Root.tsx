@@ -1,7 +1,7 @@
 // React
 import { useState } from "react";
 // React Router
-import { Outlet, Link as RouterLink, useLocation } from "react-router-dom";
+import { Outlet, Link as RouterLink, useLocation, ScrollRestoration } from "react-router-dom";
 // MUI Components
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -210,6 +210,7 @@ const Root = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ScrollRestoration />
       <Header handleDisplayMode={handleDisplayMode} displayMode={isDark} />
       <Box
         sx={{
