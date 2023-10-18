@@ -85,10 +85,10 @@ const GaSection = () => {
         <Japanese>ジョンが先生です</Japanese> (John ga sensei desu).
       </Paragraph>
       <Vocabulary>
-        <VocabularyItem translation="fish" furigana="さかな" kana="魚" />
-        <VocabularyItem translation="doctor" furigana="いしゃ" kana="医者" />
-        <VocabularyItem translation="this" kana="これ" />
-        <VocabularyItem translation="pencil" furigana="えんぴつ" kana="鉛筆" />
+        <VocabularyItem translation="Fish" furigana="さかな" kana="魚" />
+        <VocabularyItem translation="Doctor" furigana="いしゃ" kana="医者" />
+        <VocabularyItem translation="This" kana="これ" />
+        <VocabularyItem translation="Pencil" furigana="えんぴつ" kana="鉛筆" />
       </Vocabulary>
       <Example>
         <ExampleItem
