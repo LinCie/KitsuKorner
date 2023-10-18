@@ -5,11 +5,16 @@ import Title from "../../components/typography/Title";
 import Header from "../../components/typography/Header";
 import Paragraph from "../../components/typography/Paragraph";
 import Japanese from "../../components/typography/Japanese";
+import { KeyPoint, KeyPointText } from "../../components/components/KeyPoint";
+import { Example, ExampleItem } from "../../components/components/Example";
+import {
+  Vocabulary,
+  VocabularyItem,
+} from "../../components/components/Vocabulary";
 import {
   BottomNavigation,
   NavigationLink,
 } from "../../components/navigations/BottomNavigation";
-import { KeyPoint, KeyPointText } from "../../components/components/KeyPoint";
 
 const ExistSection = () => {
   return (
@@ -53,6 +58,59 @@ const ExistSection = () => {
   );
 };
 
+const GaSection = () => {
+  return (
+    <Box component="section" id="ga-section">
+      <Header>
+        The Particle<Japanese>「が」</Japanese>
+      </Header>
+      <Paragraph>
+        What is a particle? A particle is a hiragana characters that are a
+        crucial component of Japanese grammar, as they are used to indicate the
+        relationship between words and phrases in a sentence. Japanese particles
+        help specify the roles of nouns, verbs, and other elements in a
+        sentence, such as subject, object, location, direction, and more. Some
+        common Japanese particles include <Japanese>「は」</Japanese> (wa),
+        <Japanese>「の」</Japanese> (no), <Japanese>「へ」</Japanese> (e),
+        <Japanese>「で」</Japanese> (de), and <Japanese>「が」</Japanese> (ga),
+        among others.
+      </Paragraph>
+      <Paragraph>
+        In this section, we're going to talk about the{" "}
+        <Japanese>「が」</Japanese> particle. <Japanese>「が」</Japanese> is
+        often used to mark the subject of a sentence. It specifies who or what
+        is performing the action of the verb. For example, if you want to say
+        "There is a dog", you would say <Japanese>犬がいる</Japanese> (Inu ga
+        iru), or if you want to say "John is a teacher", you would say{" "}
+        <Japanese>ジョンが先生です</Japanese> (John ga sensei desu).
+      </Paragraph>
+      <Vocabulary>
+        <VocabularyItem translation="fish" furigana="さかな" kana="魚" />
+        <VocabularyItem translation="doctor" furigana="いしゃ" kana="医者" />
+        <VocabularyItem translation="this" kana="これ" />
+        <VocabularyItem translation="pencil" furigana="えんぴつ" kana="鉛筆" />
+      </Vocabulary>
+      <Example>
+        <ExampleItem
+          japanese="魚がいる"
+          reading="Sakana ga iru"
+          translation="There is a fish"
+        />
+        <ExampleItem
+          japanese="マイクが医者です"
+          reading="Maiku ga isha desu"
+          translation="Mike is a doctor"
+        />
+        <ExampleItem
+          japanese="これが鉛筆です"
+          reading="Kore ga enpitsu desu"
+          translation="This is a pencil"
+        />
+      </Example>
+    </Box>
+  );
+};
+
 const TheParticleGa = () => {
   return (
     <>
@@ -61,6 +119,7 @@ const TheParticleGa = () => {
         The Particle<Japanese>「が」</Japanese>
       </Title>
       <ExistSection />
+      <GaSection />
       {/* Navigation */}
       <BottomNavigation>
         <NavigationLink left link="/beginner/state-of-being-copular">
